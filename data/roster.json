@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "versi": "2026-11-19",
+    "kelas": "B",
+    "namaKelas": "Bedjo",
+    "angkatan": 2023,
+    "prodi": "Ilmu Al-Qur'an dan Tafsir",
+    "fakultas": "Fakultas Ushuluddin",
+    "kampus": "UIN Sunan Gunung Djati Bandung",
+    "zonaWaktu": "Asia/Jakarta",
+    "catatanAbsen": "absen = nomor pada Daftar Presensi SALAM kelas V-B (44 nama). Anggota di luar daftar itu bernilai null. urutanSidang = nomor pada jadwal ujian proposal jurusan.",
+    "sesi": [
+      { "id": "s1-nov-2026", "label": "Sesi 1 · November 2026", "tanggal": "2026-11-12", "jamMulai": "08:00", "jamSelesai": "12:00", "ruang": null }
+    ]
+  },
+  "dosen": [
+    { "id": "solehudin", "nama": "Solehudin", "gelarBaku": "Dr. Solehudin, M.Ag", "alias": [], "jabatan": ["pembimbing", "penguji"] },
+    { "id": "eni-zulaiha", "nama": "Eni Zulaiha", "gelarBaku": "Dr. Eni Zulaiha, M.Ag", "alias": ["Dr. Eni Zulaiha, M.Ag."], "jabatan": ["pembimbing", "penguji"] },
+    { "id": "ecep-ismail", "nama": "Ecep Ismail", "gelarBaku": "Dr. Ecep Ismail, M.Ag", "alias": ["Dr. Ecep Ismail, M.Ag."], "jabatan": ["pembimbing", "penguji"] },
+    { "id": "fakhri-afif", "nama": "Fakhri Afif", "gelarBaku": "Fakhri Afif, S.H., M.A.", "alias": ["Fakhri Afif, SH., M.A."], "jabatan": ["penguji"] },
+    { "id": "yayan-mulyana", "nama": "Yayan Mulyana", "gelarBaku": "Drs. H. Yayan Mulyana, M.Ag", "alias": ["Drs. Yayan Mulyana, M.Ag", "Drs. H. Yayan Mulyana, M.Ag."], "jabatan": ["pembimbing", "penguji"] },
+    { "id": "siti-chodijah", "nama": "Siti Chodijah", "gelarBaku": "Dr. Siti Chodijah, M.Ag", "alias": ["Dr. Siti Chodjah, M.Ag"], "jabatan": ["pembimbing", "penguji"] },
+    { "id": "alif-jabal-kurdi", "nama": "Alif Jabal Kurdi", "gelarBaku": "Alif Jabal Kurdi, S.Ag., M.A.", "alias": ["Alif Jabal Kurdi, M.Ag.", "Alif Jabal Kurdi, M.Ag"], "jabatan": ["penguji"] },
+    { "id": "ahmad-izzan", "nama": "Ahmad Izzan", "gelarBaku": "Dr. H. Ahmad Izzan, M.Ag", "alias": ["Dr. Ahmad Izzan, M.Ag"], "jabatan": ["pembimbing", "penguji"] },
+    { "id": "ali-masrur", "nama": "Ali Masrur", "gelarBaku": "Dr. Ali Masrur, M.Ag", "alias": [], "jabatan": ["pembimbing", "penguji"] }
+  ],
+  "mahasiswa": [
+    {
+      "id": "risma-aryani-altam", "nama": "Risma Aryani Altam", "nim": "1231030086",
+      "absen": 35, "urutanSidang": 1, "kota": "Aceh Tamiang",
+      "judul": "Polivalensi yang Ditangguhkan; Genre, Genealogi dan Asimetri Pernikahan Beda Agama dalam Tafsir Sunni dari Al-Tabari hingga Ibnu Katsir",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "solehudin", "penguji2": "eni-zulaiha",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "luthfiyana-tri-rahmawati", "nama": "Luthfiyana Tri Rahmawati", "nim": "1231030079",
+      "absen": 31, "urutanSidang": 4, "kota": "Manado",
+      "judul": "Konstruksi Penafsiran Ayat-Ayat Tahaddi dalam Al-Kasyfu wa Al-Bayan Karya Abu Ishaq Al-Tha'labi",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "ecep-ismail", "penguji2": "solehudin",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "abdul-jilan-fadhlulrahman", "nama": "Abdul Jilan Fadhlulrahman", "nim": "1231030072",
+      "absen": 26, "urutanSidang": 5, "kota": "Bandung",
+      "judul": "Pemaknaan Kisah Qabil dan Habil dalam QS. Al-Ma'idah Ayat 27–31: Pendekatan Psikologi Regulasi Emosi James Gross",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "ecep-ismail", "penguji2": "fakhri-afif",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "tita-ayu-setiawati", "nama": "Tita Ayu Setiawati", "nim": "1231030070",
+      "absen": 24, "urutanSidang": 7, "kota": "Bandung",
+      "judul": "Konstruksi Makna Paribasa dan Babasan Sunda dalam Tafsir Ayat Suci Lenyepaneun Juz 2: Analisis Sosiologi Pengetahuan Karl Mannheim",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "yayan-mulyana", "penguji2": "siti-chodijah",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "suci-rahma-siswanti", "nama": "Suci Rahma Siswanti", "nim": "1231030068",
+      "absen": 22, "urutanSidang": 13, "kota": "Cimahi",
+      "judul": "Pemeliharaan Kesehatan Jasmani dalam Perspektif Tafsir Al-Misbah Karya Quraish Shihab Ditinjau dari Ilmu Kesehatan Modern",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "yayan-mulyana", "penguji2": "alif-jabal-kurdi",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "roihan-maulidhani", "nama": "Roihan Maulidhani", "nim": "1231030062",
+      "absen": 17, "urutanSidang": 14, "kota": "Jakarta Timur",
+      "judul": "Kontekstualisasi Makna Ta'awun dalam Al-Qur'an (Kajian Tafsir Q.S. Al-Maidah [5]: 2 dalam Kitab Tafsir Fi Zhilalil Qur'an)",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "yayan-mulyana", "penguji2": "alif-jabal-kurdi",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "laksmana-bintang-ababillah", "nama": "Laksmana Bintang Ababillah", "nim": "1231030040",
+      "absen": 2, "urutanSidang": 21, "kota": "Situbondo",
+      "judul": "Toleransi Kosmopolitan dan Batas-Batas Politik dalam Tafsir Al-Azhar (Studi Hermeneutika Historis Wilhelm Dilthey)",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "solehudin", "penguji2": "fakhri-afif",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "lala-nur-indrawati", "nama": "Lala Nur Indrawati", "nim": "1231030090",
+      "absen": 38, "urutanSidang": 25, "kota": "Palembang",
+      "judul": "Pergeseran Makna Kalam Insya'i Thalabi pada QS. Luqman: Studi Tafsir Satwatut Tafasir Karya M. Ali Ash-Shabuni",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "solehudin", "penguji2": "ahmad-izzan",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "syakirah-rahadatul-aisy-nailah", "nama": "Syakirah Rahadatul Aisy Nailah", "nim": "1231030069",
+      "absen": 23, "urutanSidang": 29, "kota": "Bekasi",
+      "judul": "Dakhil Naqli pada Riwayat Fadhail As-Suwar dalam Tafsir Al-Kasyfu wa Al-Bayan Karya Abu Ishaq Ahmad bin Ibrahim At-Tsa'labi",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "yayan-mulyana", "penguji2": "ecep-ismail",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "lulu-khairatun-hisan", "nama": "Lulu Khairatun Hisan", "nim": "1231030060",
+      "absen": 15, "urutanSidang": 31, "kota": "Cimahi",
+      "judul": "Konsep Utang-Piutang dalam Perspektif Tafsir Sunda (Studi Komparatif Tafsir Nurul Bajan dan Tafsir Ayat Suci Lenyepaneun)",
+      "pembimbing1": null, "pembimbing2": null, "penguji1": "ali-masrur", "penguji2": "ahmad-izzan",
+      "status": "sudah_sidang", "tanggalSidang": "2026-11-12", "sesiId": "s1-nov-2026", "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": true,
+      "timeline": { "proposal": "selesai", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    },
+    {
+      "id": "arpan-maulana", "nama": "Arpan Maulana", "nim": "1231030055",
+      "absen": null, "urutanSidang": null, "kota": "Sumedang",
+      "judul": null,
+      "pembimbing1": null, "pembimbing2": null, "penguji1": null, "penguji2": null,
+      "status": "belum_dijadwalkan", "tanggalSidang": null, "sesiId": null, "ruang": null,
+      "angkatan": 2023, "kelas": "B", "izinTampil": false,
+      "timeline": { "proposal": "belum", "semhas": "belum", "sidang": "belum", "yudisium": "belum", "wisuda": "belum" }
+    }
+  ],
+  "pesan": [
+    { "id": "p1", "label": "Barakallahu fiik", "text": "Barakallahu fiik. Semoga langkah menuju skripsi dimudahkan, dan setiap ayat yang kau kaji menjadi cahaya bagi hidupmu." },
+    { "id": "p2", "label": "Dilancarkan penelitiannya", "text": "Selamat atas selesainya ujian proposal! Semoga Allah mudahkan penelitianmu, diluaskan sabarmu, dan diberkahi setiap prosesnya." },
+    { "id": "p3", "label": "Menuju gelar S.Ag.", "text": "Satu babak telah dilewati. Semoga bab-bab berikutnya mengalir tenang, dan gelar S.Ag. segera menyusul. Aamiin." },
+    { "id": "p4", "label": "Mabruk, terus menghidupkan Al-Qur'an", "text": "Mabruk! Lelahmu hari ini adalah taburan cahaya untuk masa depan. Teruslah membaca, meneliti, dan menghidupkan Al-Qur'an." },
+    { "id": "p5", "label": "Doa untuk tahap selanjutnya", "text": "Selamat berjuang di tahap selanjutnya. Semoga Allah menjaga niatmu, meluaskan sabarmu, dan meridhai ikhtiarmu." }
+  ],
+  "dinding": []
+}

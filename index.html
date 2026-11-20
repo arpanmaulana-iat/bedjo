@@ -364,6 +364,27 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
   #rekap .tscroll{max-height:460px!important}
 }
 </style>
+<style>/*bedjo-fix-v15*/
+#rekap,#rekap .reveal,#rekap .split,#rekap .split>*,#rekap .tscroll,#rekap #chartPanel{opacity:1!important;visibility:visible!important;transform:none!important}
+#rekap .split>*{min-width:0!important;width:100%!important}
+@media(max-width:900px){
+  .reveal{opacity:1!important;transform:none!important}
+  #rekap .split{display:flex!important;flex-direction:column!important;gap:18px!important}
+  #rekap .tscroll{display:block!important;width:100%!important;max-height:460px!important;overflow:auto!important}
+  #rekap #chartPanel{display:flex!important;width:100%!important;max-height:460px!important}
+}
+</style>
+<style>/*bedjo-fix-v16*/
+.section{padding-top:34px!important;padding-bottom:34px!important}
+#dinding{padding-bottom:18px!important}
+#kolektif{padding-top:18px!important;padding-bottom:32px!important}
+#kolektif .sechead,#dinding .sechead{margin-bottom:16px!important}
+#kolektif .split{align-items:start!important}
+@media(min-width:769px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+  .card{width:100%!important;max-width:100%!important;margin:0!important}
+}
+</style>
 </head>
 <body data-mode="dark">
 <a class="skip" href="#kartu">Lewati ke daftar kartu</a>

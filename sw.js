@@ -2,7 +2,7 @@
    Service Worker — Kartu Ucapan Sempro · IAT B «Bedjo» 2023
    Naikkan VERSION setiap kali index.html / roster.json berubah.
    ============================================================ */
-   const VERSION = "bedjo-v10";
+   const VERSION = "bedjo-v11";
    const SHELL   = VERSION + "-shell";
    const RUNTIME = VERSION + "-runtime";
    

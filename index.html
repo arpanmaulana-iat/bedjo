@@ -353,32 +353,32 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
   .navright .btn.sm{padding:0 8px;font-size:11.5px}
 }
 </style>
-<style>/*bedjo-master-v24*/
-/* 1. Sembunyikan badge Powered by Netlify secara permanen & aman */
+<style>/*bedjo-master-v25*/
+/* 1. Sembunyikan badge Powered by Netlify secara permanen */
 iframe[src*="netlify"],[data-netlify-deploy-id],[data-netlify-site-id],[id*="netlify"],[class*="netlify"],a[href*="netlify.com"],[data-bedjo-netlify-hide]{
   display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;width:0!important;height:0!important;position:fixed!important;left:-9999px!important;
 }
 
-/* 2. Rapikan tinggi Section & hilangkan space kosong vertikal berlebih */
+/* 2. Normalisasi tinggi section agar tidak ada ruang kosong vertikal berlebih */
 .hero,#hero,section,.section{
   min-height:0!important;
   height:auto!important;
 }
 .hero,#hero{
-  padding-top:28px!important;
-  padding-bottom:28px!important;
+  padding-top:26px!important;
+  padding-bottom:26px!important;
 }
 section,.section{
-  padding-top:38px!important;
-  padding-bottom:38px!important;
+  padding-top:34px!important;
+  padding-bottom:34px!important;
 }
 
-/* 3. Rapikan Hero Desktop (>= 900px) agar tidak ada space kosong di bawah logo sebelah kanan */
+/* 3. Rapikan Hero Desktop (>= 900px) agar tidak ada space kosong di bawah logo kanan */
 @media (min-width: 900px){
   [data-bedjo-hero-grid]{
     display:grid!important;
     grid-template-columns:minmax(0, 1.35fr) minmax(240px, 0.85fr)!important;
-    gap:20px 28px!important;
+    gap:18px 28px!important;
     align-items:center!important;
   }
   [data-bedjo-hero-art]{
@@ -389,8 +389,8 @@ section,.section{
     padding:0!important;
   }
   [data-bedjo-hero-art] svg{
-    max-width:230px!important;
-    max-height:230px!important;
+    max-width:225px!important;
+    max-height:225px!important;
     width:100%!important;
     height:auto!important;
   }
@@ -409,27 +409,30 @@ section,.section{
   }
 }
 
-/* 4. Perbaiki Toolbar Pencarian & Grid Kartu Ucapan di Desktop & Situs Desktop HP (>= 768px) */
+/* 4. Paskan Kartu Ucapan & Toolbar Pencarian dengan Layar (Laptop & Situs Desktop HP >= 768px) */
 @media (min-width: 768px){
-  [data-bedjo-klayout]{
+  /* Mode dengan sidebar kanan (Laptop / Desktop lebar) */
+  [data-bedjo-klayout="side"]{
     display:grid!important;
-    grid-template-columns:minmax(0, 1fr) 300px!important;
+    grid-template-columns:minmax(0, 1fr) 305px!important;
     gap:20px!important;
     align-items:start!important;
     width:100%!important;
+    max-width:100%!important;
   }
-  [data-bedjo-klayout-noside]{
-    display:flex!important;
-    flex-direction:column!important;
-    gap:20px!important;
-    width:100%!important;
-  }
-  [data-bedjo-kmain]{
+  /* Mode tanpa sidebar kanan / sidebar bottom-sheet (Situs Desktop HP) -> 100% penuh layar */
+  [data-bedjo-klayout="full"]{
     display:flex!important;
     flex-direction:column!important;
     gap:18px!important;
-    min-width:0!important;
     width:100%!important;
+    max-width:100%!important;
+  }
+  [data-bedjo-kfull]{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    flex:1 1 auto!important;
   }
   [data-bedjo-fbox]{
     grid-column:1 / -1!important;
@@ -441,6 +444,7 @@ section,.section{
     gap:10px!important;
     width:100%!important;
     max-width:100%!important;
+    box-sizing:border-box!important;
     height:auto!important;
     min-height:0!important;
     padding:14px 16px!important;
@@ -452,7 +456,7 @@ section,.section{
     min-height:0!important;
   }
   [data-bedjo-swrap]{
-    flex:1 1 230px!important;
+    flex:1 1 240px!important;
     min-width:200px!important;
     width:auto!important;
   }
@@ -462,7 +466,7 @@ section,.section{
     min-height:40px!important;
   }
   [data-bedjo-fbox] select{
-    flex:0 1 170px!important;
+    flex:0 1 175px!important;
     width:auto!important;
     min-width:140px!important;
     height:40px!important;
@@ -486,6 +490,8 @@ section,.section{
     grid-template-columns:repeat(3, minmax(0, 1fr))!important;
     gap:18px!important;
     width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
     align-items:start!important;
   }
   [data-bedjo-dosen-grid]{
@@ -493,10 +499,11 @@ section,.section{
     grid-template-columns:repeat(3, minmax(0, 1fr))!important;
     gap:16px!important;
     width:100%!important;
+    max-width:100%!important;
   }
 }
 
-/* 5. Toolbar Pencarian & Grid Kartu di HP Mobile (< 768px) */
+/* 5. Layout HP Mobile (< 768px) */
 @media (max-width: 767px){
   [data-bedjo-fbox]{
     display:flex!important;
@@ -504,6 +511,7 @@ section,.section{
     align-items:stretch!important;
     justify-content:flex-start!important;
     gap:10px!important;
+    width:100%!important;
     height:auto!important;
     min-height:0!important;
     max-height:none!important;
@@ -517,8 +525,7 @@ section,.section{
     max-width:100%!important;
     height:auto!important;
     min-height:0!important;
-    margin-top:0!important;
-    margin-bottom:0!important;
+    margin:0!important;
   }
   [data-bedjo-fbox] input,
   [data-bedjo-fbox] select{
@@ -546,23 +553,29 @@ section,.section{
   }
 }
 
-/* Cegah header mini kartu bertabrakan antar kolom */
+/* Pastikan setiap kartu dan SVG di dalamnya mengisi penuh kolomnya tanpa tumpang tindih */
 [data-bedjo-cards-grid] > *{
   width:100%!important;
   max-width:100%!important;
   min-width:0!important;
-  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+[data-bedjo-cards-grid] > * svg{
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  display:block!important;
 }
 [data-bedjo-card-bar]{
   display:flex!important;
   align-items:center!important;
   justify-content:space-between!important;
-  gap:4px!important;
+  gap:6px!important;
   flex-wrap:nowrap!important;
   width:100%!important;
   min-width:0!important;
   overflow:hidden!important;
-  font-size:11px!important;
+  font-size:12px!important;
 }
 [data-bedjo-card-bar] > *{
   min-width:0!important;
@@ -570,12 +583,60 @@ section,.section{
 }
 [data-bedjo-empty]{display:none!important;}
 
-/* 6. Beri jarak nyaman antara Tabel Rekap Sidang & Peta Asal Mahasiswa */
-[data-bedjo-peta]{
-  margin-top:28px!important;
+/* 6. Jadikan Peta Asal Mahasiswa sebagai Section Berjudul Tersendiri (terpisah jelas dari Rekap) */
+[data-bedjo-peta-section]{
+  margin-top:52px!important;
+  padding-top:32px!important;
+  border-top:1px solid rgba(212, 175, 55, 0.22)!important;
+  background:transparent!important;
+  border-left:none!important;
+  border-right:none!important;
+  border-bottom:none!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding-left:0!important;
+  padding-right:0!important;
+  width:100%!important;
+}
+[data-bedjo-peta-eyebrow]{
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  letter-spacing:0.16em!important;
+  text-transform:uppercase!important;
+  color:#d4af37!important;
+  margin-bottom:6px!important;
+}
+[data-bedjo-peta-eyebrow]::before{
+  content:""!important;
+  display:inline-block!important;
+  width:22px!important;
+  height:1.5px!important;
+  background:#d4af37!important;
+}
+[data-bedjo-peta-title]{
+  font-family:Georgia, 'Times New Roman', serif!important;
+  font-size:clamp(24px, 3vw, 34px)!important;
+  font-weight:700!important;
+  line-height:1.2!important;
+  color:#f6f0e0!important;
+  margin:0 0 6px 0!important;
 }
 
-/* 7. Pastikan Tabel Rekap Sidang selalu tampil di HP maupun Desktop */
+/* 7. Jarak seimbang antara Titip Doa & Ucapan dan Kartu Kolektif (tidak terlalu jauh & tidak rapat) */
+[data-bedjo-doa-sec]{
+  padding-bottom:22px!important;
+  margin-bottom:0!important;
+}
+[data-bedjo-kolektif-sec]{
+  margin-top:20px!important;
+  padding-top:28px!important;
+  border-top:1px solid rgba(255, 255, 255, 0.08)!important;
+}
+
+/* 8. Pastikan Tabel Rekap Sidang selalu tampil di HP maupun Desktop */
 [data-bedjo-rekap-wrap]{
   display:block!important;
   visibility:visible!important;
@@ -601,9 +662,9 @@ section,.section{
 [data-bedjo-rekap-wrap] tr{display:table-row!important;}
 [data-bedjo-rekap-wrap] th,[data-bedjo-rekap-wrap] td{display:table-cell!important;}
 </style>
-<script>/*bedjo-js-v24*/
+<script>/*bedjo-js-v25*/
 (()=>{
-  // 1. Cegat Shadow DOM & elemen sisipan Netlify secara instan dan super ringan
+  // 1. Cegat Shadow DOM & elemen sisipan Netlify secara instan
   const hideEl=el=>{
     if(!el||el.nodeType!==1)return;
     if(/^(HTML|HEAD|BODY|HEADER|MAIN|FOOTER|NAV|SECTION|SCRIPT|STYLE|LINK)$/i.test(el.tagName))return;
@@ -635,7 +696,7 @@ section,.section{
   const runFix=()=>{
     nukeRootChildren();
 
-    // A. Rapikan Hero: pindahkan Stat Cards + Progress Card ke baris bawah penuh agar tidak ada ruang kosong di bawah logo kanan
+    // A. Rapikan Hero Desktop
     const heroSec=document.querySelector('.hero,#hero')||Array.from(document.querySelectorAll('section,header')).find(s=>/UJIAN PROPOSAL SKRIPSI/i.test(s.textContent||'')&&/ANGGOTA/i.test(s.textContent||''));
     if(heroSec){
       const art=Array.from(heroSec.querySelectorAll('div')).find(d=>d.querySelector('svg')&&!d.querySelector('button,h1,h2')&&d.children.length<=3&&d.parentElement&&d.parentElement.children.length>=2);
@@ -658,7 +719,7 @@ section,.section{
       }
     }
 
-    // B. Rapikan Toolbar Pencarian & Grid Kartu Ucapan
+    // B. Paskan Toolbar Pencarian & Grid Kartu Ucapan dengan Layar
     const inp=document.querySelector('input[placeholder*="Cari nama" i]');
     let fbox=null;
     if(inp){
@@ -689,17 +750,28 @@ section,.section{
             const bar=card.firstElementChild;
             if(bar&&/Pilih|MENUNGGU|SUDAH/i.test(bar.textContent||''))bar.setAttribute('data-bedjo-card-bar','1');
           });
-          // Hubungkan fbox, cards-grid, dan sidebar Studio Kartu agar fbox tidak terjepit di kiri
+
+          // Cari container utama Kartu Ucapan dan deteksi posisi sidebar Studio Kartu
           let anc=el.parentElement,d=0;
-          while(anc&&anc!==document.body&&anc.tagName!=='SECTION'&&d<5){
-            const hasSidebar=/Atur Tampilan|Studio Kartu|PALET/i.test(anc.textContent||'')&&anc.children.length>=2;
+          while(anc&&anc!==document.body&&anc.tagName!=='SECTION'&&d<6){
+            const sideEl=Array.from(anc.children).find(ch=>/Atur Tampilan|PALET/i.test(ch.textContent||'')&&!ch.contains(el));
             const hasFbox=fbox&&anc.contains(fbox);
-            if(hasSidebar&&hasFbox){
-              anc.setAttribute('data-bedjo-klayout','1');
-              // Jika cards-grid dibungkus bersama fbox dalam kolom kiri, tandai sebagai kmain
-              Array.from(anc.children).forEach(ch=>{
-                if(ch.contains(el)&&ch!==el)ch.setAttribute('data-bedjo-kmain','1');
-              });
+            if(sideEl&&hasFbox){
+              const sidePos=getComputedStyle(sideEl).position;
+              const isDockedSide=(sidePos!=='fixed'&&sideEl.getBoundingClientRect().width>150&&sideEl.getBoundingClientRect().width<window.innerWidth*0.6);
+              anc.setAttribute('data-bedjo-klayout',isDockedSide?'side':'full');
+
+              // Paksa SEMUA pembungkus antara anc dan cards-grid serta anc dan fbox menjadi lebar penuh (100%)
+              let cur=el.parentElement;
+              while(cur&&cur!==anc){
+                cur.setAttribute('data-bedjo-kfull','1');
+                cur=cur.parentElement;
+              }
+              let curF=fbox.parentElement;
+              while(curF&&curF!==anc){
+                curF.setAttribute('data-bedjo-kfull','1');
+                curF=curF.parentElement;
+              }
               break;
             }
             anc=anc.parentElement;
@@ -712,13 +784,20 @@ section,.section{
       }
     });
 
-    // C. Beri jarak pada Peta Asal Mahasiswa agar tidak menempel ke tabel Rekap
-    document.querySelectorAll('h2,h3,h4,div').forEach(el=>{
-      if(el.children.length<=2&&/^Peta Asal Mahasiswa$/i.test((el.textContent||'').trim())){
+    // C. Jadikan Peta Asal Mahasiswa sebagai Section Berjudul Tersendiri (bukan bagian Rekap)
+    document.querySelectorAll('h1,h2,h3,h4,div').forEach(el=>{
+      if(el.children.length<=1&&/^Peta Asal Mahasiswa$/i.test((el.textContent||'').trim())){
+        el.setAttribute('data-bedjo-peta-title','1');
         let box=el.parentElement;
         while(box&&box!==document.body&&box.tagName!=='SECTION'){
           if(box.parentElement&&box.parentElement.querySelector('table')){
-            box.setAttribute('data-bedjo-peta','1');
+            box.setAttribute('data-bedjo-peta-section','1');
+            if(!box.querySelector('[data-bedjo-peta-eyebrow]')){
+              const ey=document.createElement('div');
+              ey.setAttribute('data-bedjo-peta-eyebrow','1');
+              ey.textContent='SEBARAN WILAYAH';
+              el.parentElement.insertBefore(ey,el);
+            }
             break;
           }
           box=box.parentElement;
@@ -726,7 +805,20 @@ section,.section{
       }
     });
 
-    // D. Pastikan Tabel Rekap Sidang selalu terlihat di HP
+    // D. Atur jarak seimbang antara Titip Doa & Ucapan dan Kartu Kolektif
+    document.querySelectorAll('section,div').forEach(el=>{
+      const txt=el.textContent||'';
+      if(el.tagName==='SECTION'||(el.parentElement&&el.parentElement.tagName==='MAIN')){
+        if(/Titip Doas*&s*Ucapan/i.test(txt)&&!/Kartu Kolektif/i.test(txt)){
+          el.setAttribute('data-bedjo-doa-sec','1');
+        }
+        if(/Kartu Kolektif/i.test(txt)&&!/Titip Doa/i.test(txt)){
+          el.setAttribute('data-bedjo-kolektif-sec','1');
+        }
+      }
+    });
+
+    // E. Pastikan Tabel Rekap Sidang selalu terlihat di HP
     document.querySelectorAll('table').forEach(tbl=>{
       if(/Status|Judul|Penguji|Mahasiswa|NIM/i.test(tbl.textContent||'')){
         let w=tbl.parentElement;
@@ -739,12 +831,13 @@ section,.section{
     });
   };
 
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',runFix);
-  else runFix();
-  window.addEventListener('load',runFix);
-  setTimeout(runFix,250);
-  setTimeout(runFix,900);
-  setTimeout(runFix,2200);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',applyBedjoLayout);
+  else applyBedjoLayout();
+  window.addEventListener('load',applyBedjoLayout);
+  window.addEventListener('resize',applyBedjoLayout);
+  setTimeout(applyBedjoLayout,250);
+  setTimeout(applyBedjoLayout,900);
+  setTimeout(applyBedjoLayout,2200);
 })();
 </script>
 </head>

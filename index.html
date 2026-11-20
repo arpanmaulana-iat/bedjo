@@ -331,6 +331,7 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
   .grid{grid-template-columns:1fr 1fr;gap:8px}.card{break-inside:avoid;max-width:none}
 }
 </style>
+<style>/*bedjo-fit-final*/.face{line-height:0}.face svg,.mcard svg,.collective svg{width:100%!important;height:auto!important;display:block!important}</style>
 </head>
 <body data-mode="dark">
 <a class="skip" href="#kartu">Lewati ke daftar kartu</a>
@@ -890,7 +891,7 @@ function cardSVG(m,idx,opt){
   out+='<path d="M'+PAD+','+fy+' H'+(CX-22)+'" stroke="url(#'+uid+'g)" opacity=".7"/><path d="M'+(CX+22)+','+fy+' H'+(W-PAD)+'" stroke="url(#'+uid+'g)" opacity=".7"/><path d="'+star(CX,fy,9,8,.66)+'" fill="url(#'+uid+'g)"/>'+
     tx(CX,H-70,("KELAS "+m.kelas+" «"+BASE.meta.namaKelas+"» · ANGKATAN "+m.angkatan).toUpperCase(),{size:11.5,ls:3.2,w:700,fill:t.gold})+
     tx(CX,H-46,st==="sudah_sidang"&&m.tanggalSidang?fmtD(m.tanggalSidang)+" · "+((sesiOf(m)||{}).label||""):BASE.meta.kampus,{size:12.5,fill:t.muted});
-  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="Kartu '+esc(m.nama)+'"><defs>'+defs+'</defs>'+out+'</svg>';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block" role="img" aria-label="Kartu '+esc(m.nama)+'"><defs>'+defs+'</defs>'+out+'</svg>';
 }
 function collectiveSVG(opt){
   opt=opt||{};var t=T(),W=1400,H=900,CX=W/2,fam=CARD_FONT,uid="col";
@@ -923,7 +924,7 @@ function collectiveSVG(opt){
   var defs=(opt.fonts?'<style>'+opt.fonts+'</style>':"")+
     '<linearGradient id="'+uid+'g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+t.goldHi+'"/><stop offset=".35" stop-color="'+t.gold+'"/><stop offset=".7" stop-color="'+t.goldDeep+'"/><stop offset="1" stop-color="'+t.gold+'"/></linearGradient>'+
     '<pattern id="'+uid+'p" width="'+sz+'" height="'+sz+'" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">'+tile(S.motif==="campur"?"khatam":S.motif,sz,t.gold)+'</pattern>';
-  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'"><defs>'+defs+'</defs>'+s+'</svg>';
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block"><defs>'+defs+'</defs>'+s+'</svg>';
 }
 function ogSVG(m){
   var t=T(),W=1200,H=630,fam=CARD_FONT;
@@ -944,6 +945,7 @@ function ogSVG(m){
 
 /* ============ 5. EKSPOR ============ */
 function svgToPng(svg,w,h,scale){
+  /*png-wh*/if(!/\bwidth=/.test(svg.slice(0,160)))svg=svg.replace("<svg ","<svg width=\""+w+"\" height=\""+h+"\" ");
   return new Promise(function(res,rej){
     var b=new Blob([svg],{type:"image/svg+xml;charset=utf-8"}),u=URL.createObjectURL(b),img=new Image();
     img.onload=function(){try{var c=document.createElement("canvas");c.width=Math.round(w*scale);c.height=Math.round(h*scale);

@@ -1,15 +1,89 @@
 {
-  "name": "Kartu Ucapan Sempro — IAT B Bedjo 2023",
+  "id": "./",
+  "name": "Kartu Ucapan Sempro — IAT B «Bedjo» 2023",
   "short_name": "Bedjo Sempro",
+  "description": "Kartu ucapan ujian proposal skripsi mahasiswa Ilmu Al-Qur'an dan Tafsir Kelas B (Bedjo) angkatan 2023, UIN Sunan Gunung Djati Bandung. Lengkap dengan judul proposal, penguji, timeline skripsi, hitung mundur sidang, dan unduhan kartu PNG.",
   "lang": "id",
+  "dir": "ltr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
   "background_color": "#04211B",
   "theme_color": "#04211B",
+  "categories": ["education", "social", "productivity"],
+  "prefer_related_applications": false,
+  "launch_handler": { "client_mode": "navigate-existing" },
   "icons": [
-    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
-    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kartu Ucapan",
+      "short_name": "Kartu",
+      "description": "Buka galeri kartu ucapan seluruh anggota Bedjo",
+      "url": "./#kartu",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Rekap Sidang",
+      "short_name": "Rekap",
+      "description": "Tabel absen, urutan sidang, judul, dan penguji",
+      "url": "./#rekap",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Dinding Ucapan",
+      "short_name": "Ucapan",
+      "description": "Kirim doa dan ucapan untuk sahabat yang sidang",
+      "url": "./#dinding",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Direktori Dosen",
+      "short_name": "Dosen",
+      "description": "Daftar pembimbing dan penguji beserta jumlah tugas",
+      "url": "./#dosen",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Kartu ucapan kolektif Kelas B Bedjo 2023"
+    }
   ]
 }

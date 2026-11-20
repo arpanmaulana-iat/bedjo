@@ -385,8 +385,9 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
   .card{width:100%!important;max-width:100%!important;margin:0!important}
 }
 </style>
-<style>/*bedjo-fix-v17*/
-[class*="netlify"],[id*="netlify"],a[href*="netlify.com"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+<style>/*bedjo-fix-v29*/
+@media(max-width:768px){.toolbar .search{flex:0 0 auto!important;height:auto!important;min-height:0!important}}
+iframe[src*="netlify"],[class*="netlify" i],[id*="netlify" i],[data-netlify-badge],[data-netlify-deploy-id],a[href*="netlify.com"],a[href*="netlify.app"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
 </style>
 </head>
 <body data-mode="dark">
@@ -1788,6 +1789,28 @@ function init(){
 }
 init();
 })();
+</script>
+<script>/*bedjo-js-v29*/
+(()=>{const S={bg:1,fx:1,main:1,adminView:1,modal:1,loginModal:1,welcomeGate:1,toasts:1};
+const rm=e=>{if(e.dataset&&e.dataset.nbOff)return;try{e.dataset.nbOff="1";e.style.cssText+=";display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;width:0!important;height:0!important"}catch(_){}};
+const chk=e=>{
+  if(!e||e.nodeType!==1||(e.id&&S[e.id])||(e.dataset&&e.dataset.nbOff))return false;
+  const g=e.tagName||"";
+  if(/^(HTML|HEAD|BODY|HEADER|MAIN|FOOTER|SECTION|SCRIPT|STYLE|LINK|META)$/.test(g))return false;
+  let a=g;if(e.attributes)for(const x of e.attributes)a+=" "+x.name+"="+x.value;
+  if(/netlify/i.test(a))return true;
+  let t="";try{t=e.shadowRoot?e.shadowRoot.textContent:(e.children.length<=5?e.textContent:"")}catch(_){}
+  if(/powereds+bys+netlify/i.test(t||""))return true;
+  if(e.parentElement===document.body||e.parentElement===document.documentElement){
+    const c=getComputedStyle(e),z=parseInt(c.zIndex,10)||0;
+    if(c.position==="fixed"&&z>=9999&&!e.classList.contains("nav")&&!e.classList.contains("studio")&&(g==="IFRAME"||g.includes("-")||e.shadowRoot||(parseInt(c.bottom,10)<=60&&parseInt(c.right,10)<=60)))return true;
+  }
+  return false;
+};
+const run=()=>document.querySelectorAll("iframe,a[href*='netlify'],[id*='netlify' i],[class*='netlify' i],body>*,html>*").forEach(e=>{if(chk(e))rm(e)});
+run();addEventListener("DOMContentLoaded",run);addEventListener("load",run);
+new MutationObserver(run).observe(document.documentElement,{childList:true,subtree:true});
+setTimeout(run,600);setTimeout(run,2000);})();
 </script>
 </body>
 </html>

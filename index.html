@@ -353,7 +353,7 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
   .navright .btn.sm{padding:0 8px;font-size:11.5px}
 }
 </style>
-<style>/*bedjo-master-v25*/
+<style>/*bedjo-master-v26*/
 /* 1. Sembunyikan badge Powered by Netlify secara permanen */
 iframe[src*="netlify"],[data-netlify-deploy-id],[data-netlify-site-id],[id*="netlify"],[class*="netlify"],a[href*="netlify.com"],[data-bedjo-netlify-hide]{
   display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;width:0!important;height:0!important;position:fixed!important;left:-9999px!important;
@@ -409,7 +409,7 @@ section,.section{
   }
 }
 
-/* 4. Paskan Kartu Ucapan & Toolbar Pencarian dengan Layar (Laptop & Situs Desktop HP >= 768px) */
+/* 4. Paskan Kartu Ucapan (3 Kolom) & Toolbar Pencarian dengan Layar (Laptop & Situs Desktop HP >= 768px) */
 @media (min-width: 768px){
   /* Mode dengan sidebar kanan (Laptop / Desktop lebar) */
   [data-bedjo-klayout="side"]{
@@ -441,13 +441,13 @@ section,.section{
     flex-wrap:wrap!important;
     align-items:center!important;
     justify-content:flex-start!important;
-    gap:10px!important;
+    gap:8px!important;
     width:100%!important;
     max-width:100%!important;
     box-sizing:border-box!important;
     height:auto!important;
     min-height:0!important;
-    padding:14px 16px!important;
+    padding:12px 14px!important;
     margin:0!important;
   }
   [data-bedjo-fbox] > *{
@@ -456,39 +456,47 @@ section,.section{
     min-height:0!important;
   }
   [data-bedjo-swrap]{
-    flex:1 1 240px!important;
-    min-width:200px!important;
+    flex:1 1 190px!important;
+    min-width:165px!important;
     width:auto!important;
   }
   [data-bedjo-fbox] input[placeholder*="Cari nama" i]{
     width:100%!important;
-    height:40px!important;
-    min-height:40px!important;
+    height:38px!important;
+    min-height:38px!important;
+    font-size:13px!important;
   }
   [data-bedjo-fbox] select{
-    flex:0 1 175px!important;
+    flex:0 1 145px!important;
     width:auto!important;
-    min-width:140px!important;
-    height:40px!important;
-    min-height:40px!important;
+    min-width:120px!important;
+    height:38px!important;
+    min-height:38px!important;
+    font-size:12.5px!important;
+    padding-left:10px!important;
+    padding-right:24px!important;
   }
   [data-bedjo-fbox] button{
     flex:0 0 auto!important;
     width:auto!important;
-    height:40px!important;
-    min-height:40px!important;
-    padding-left:14px!important;
-    padding-right:14px!important;
+    height:38px!important;
+    min-height:38px!important;
+    padding-left:12px!important;
+    padding-right:12px!important;
+    font-size:12.5px!important;
+    white-space:nowrap!important;
   }
   [data-bedjo-fcount]{
     margin-left:auto!important;
     white-space:nowrap!important;
     width:auto!important;
+    font-size:12px!important;
   }
+  /* Paksa 3 kolom sejajar penuh di Laptop maupun Situs Desktop HP */
   [data-bedjo-cards-grid]{
     display:grid!important;
     grid-template-columns:repeat(3, minmax(0, 1fr))!important;
-    gap:18px!important;
+    gap:clamp(10px, 1.4vw, 18px)!important;
     width:100%!important;
     max-width:100%!important;
     min-width:0!important;
@@ -570,12 +578,12 @@ section,.section{
   display:flex!important;
   align-items:center!important;
   justify-content:space-between!important;
-  gap:6px!important;
+  gap:4px!important;
   flex-wrap:nowrap!important;
   width:100%!important;
   min-width:0!important;
   overflow:hidden!important;
-  font-size:12px!important;
+  font-size:11px!important;
 }
 [data-bedjo-card-bar] > *{
   min-width:0!important;
@@ -662,7 +670,7 @@ section,.section{
 [data-bedjo-rekap-wrap] tr{display:table-row!important;}
 [data-bedjo-rekap-wrap] th,[data-bedjo-rekap-wrap] td{display:table-cell!important;}
 </style>
-<script>/*bedjo-js-v25*/
+<script>/*bedjo-js-v26*/
 (()=>{
   // 1. Cegat Shadow DOM & elemen sisipan Netlify secara instan
   const hideEl=el=>{
@@ -693,7 +701,7 @@ section,.section{
   new MutationObserver(nukeRootChildren).observe(document.documentElement,{childList:true});
 
   // 2. Penataan Layout Presisi
-  const runFix=()=>{
+  const applyBedjoLayout=()=>{
     nukeRootChildren();
 
     // A. Rapikan Hero Desktop
@@ -719,7 +727,7 @@ section,.section{
       }
     }
 
-    // B. Paskan Toolbar Pencarian & Grid Kartu Ucapan dengan Layar
+    // B. Paskan Toolbar Pencarian & Grid Kartu Ucapan (3 Kolom) dengan Layar
     const inp=document.querySelector('input[placeholder*="Cari nama" i]');
     let fbox=null;
     if(inp){
@@ -746,6 +754,7 @@ section,.section{
         const first=el.children[0];
         if(first&&first.querySelector&&first.querySelector('svg')&&/ANGKATAN 2023|UJIAN PROPOSAL|MENUNGGU JADWAL/i.test(first.textContent||'')){
           el.setAttribute('data-bedjo-cards-grid','1');
+          el.style.setProperty('grid-template-columns',window.innerWidth>=768?'repeat(3, minmax(0, 1fr))':'minmax(0, 1fr)','important');
           Array.from(el.children).forEach(card=>{
             const bar=card.firstElementChild;
             if(bar&&/Pilih|MENUNGGU|SUDAH/i.test(bar.textContent||''))bar.setAttribute('data-bedjo-card-bar','1');
@@ -758,7 +767,8 @@ section,.section{
             const hasFbox=fbox&&anc.contains(fbox);
             if(sideEl&&hasFbox){
               const sidePos=getComputedStyle(sideEl).position;
-              const isDockedSide=(sidePos!=='fixed'&&sideEl.getBoundingClientRect().width>150&&sideEl.getBoundingClientRect().width<window.innerWidth*0.6);
+              const sRect=sideEl.getBoundingClientRect();
+              const isDockedSide=(sidePos!=='fixed'&&sRect.width>150&&sRect.width<window.innerWidth*0.6&&sRect.height>200);
               anc.setAttribute('data-bedjo-klayout',isDockedSide?'side':'full');
 
               // Paksa SEMUA pembungkus antara anc dan cards-grid serta anc dan fbox menjadi lebar penuh (100%)

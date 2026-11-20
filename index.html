@@ -332,6 +332,27 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
 }
 </style>
 <style>/*bedjo-fit-final*/.face{line-height:0}.face svg,.mcard svg,.collective svg{width:100%!important;height:auto!important;display:block!important}</style>
+<style>/*bedjo-rekap-fit*/
+#rekap .split{align-items:stretch}
+#rekap #chartPanel{max-height:540px;overflow-y:auto;display:flex;flex-direction:column}
+#rekap #bars{overflow-y:auto;padding-right:4px;flex:1 1 auto}
+#welcomeGate{position:fixed;inset:0;z-index:250;display:none;place-items:center;padding:16px;background:var(--scrim)}
+#welcomeGate.on{display:grid}
+.gatecard{width:min(440px,100%);padding:24px;border-radius:20px;border:1px solid var(--goldDeep);background:linear-gradient(160deg,var(--surf2),var(--bg2));box-shadow:0 30px 70px -25px #000}
+.gatechoices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+@media(max-width:768px){
+  .hero{min-height:auto!important;padding-top:calc(var(--nav) + 18px)!important;padding-bottom:24px!important}
+  .section{padding:32px 14px!important}
+  .grid{grid-template-columns:1fr!important;gap:18px!important}
+  .card{max-width:420px!important}
+  .toolbar{flex-direction:column;align-items:stretch}
+  .toolbar .select,.toolbar .search{width:100%!important;min-width:0!important}
+  .toolbar .cnt{margin-left:0!important;text-align:center}
+  .gatechoices{grid-template-columns:1fr}
+  .navright{gap:4px}
+  .navright .btn.sm{padding:0 8px;font-size:11.5px}
+}
+</style>
 </head>
 <body data-mode="dark">
 <a class="skip" href="#kartu">Lewati ke daftar kartu</a>
@@ -402,8 +423,7 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
           <div class="search"><input class="input" id="q" type="search" placeholder="Cari nama, judul, penguji, kota…" aria-label="Cari kartu"></div>
           <select class="select" id="sortSel" aria-label="Urutkan kartu">
             <option value="manual">Urutan manual</option>
-            <option value="sidang">Urutan sidang</option>
-            <option value="absen">Nomor absen</option>
+                        <option value="absen">Nomor absen</option>
             <option value="nama">Nama A → Z</option>
             <option value="status">Status sidang</option>
           </select>
@@ -536,7 +556,7 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
     </div>
     <div class="split" style="margin-top:18px">
       <div class="tablewrap reveal"><table><thead><tr>
-        <th>Absen</th><th>Urutan sidang</th><th>Nama</th><th>Status</th><th>Judul</th><th>Penguji I</th><th>Penguji II</th><th></th>
+        <th>Absen</th><th>Nama</th><th>Status</th><th>Judul</th><th>Penguji I</th><th>Penguji II</th><th></th>
       </tr></thead><tbody id="tbody"></tbody></table></div>
       <div class="panel reveal" id="chartPanel"><h3>Peta Asal Mahasiswa</h3><p class="hint" id="chartSub"></p><div id="bars" style="margin-top:12px"></div></div>
     </div>
@@ -618,6 +638,7 @@ footer{position:relative;z-index:5;border-top:1px solid var(--line);background:l
     </div>
   </div>
 </div>
+<div id="welcomeGate" role="dialog" aria-modal="true"><div class="gatecard"><span class="eyebrow">Bedjo Sempro · IAT B 2023</span><h2 style="font-family:Georgia,serif;font-size:26px;margin:10px 0 6px">Pilih Mode Masuk</h2><p class="hint">Pilih <b>Mode Tamu</b> untuk umum, atau <b>Mode Kelas</b> (login Nama &amp; NIM).</p><div class="gatechoices" id="wgStep1"><button class="btn primary" id="btnPilihTamu" type="button">Mode Tamu (Publik)</button><button class="btn" id="btnPilihKelas" type="button">Mode Kelas (Login)</button></div><form id="wgKelasForm" style="display:none;gap:10px;margin-top:14px"><input class="input" id="wgUser" required placeholder="Nama depan / belakang / lengkap"><input class="input" id="wgPass" type="password" inputmode="numeric" required placeholder="Masukkan NIM"><p class="hint" id="wgErr" style="color:var(--danger);min-height:16px"></p><div style="display:flex;gap:8px"><button class="btn primary" type="submit" style="flex:1">Masuk</button><button class="btn ghost" type="button" id="btnKembaliTamu">Kembali</button></div></form></div></div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
 <script>
@@ -862,10 +883,6 @@ function cardSVG(m,idx,opt){
    '<path d="M'+(CX-108)+',238 L'+(CX-108)+',150 C'+(CX-108)+',88 '+(CX-54)+',60 '+CX+',46 C'+(CX+54)+',60 '+(CX+108)+',88 '+(CX+108)+',150 L'+(CX+108)+',238" fill="none" stroke="url(#'+uid+'g)" stroke-width="1.4"/>'+
    '<path d="'+star(CX,150,54,8,.76)+'" fill="none" stroke="url(#'+uid+'m)" stroke-width="1.6"/>'+
    '<circle cx="'+CX+'" cy="150" r="38" fill="'+t.cardB+'" stroke="'+t.goldDeep+'"/>'+tx(CX,161,initials(m.nama),{size:31,w:700,fill:A,ls:1});
-  if(m.urutanSidang!=null&&st!=="belum_dijadwalkan"){
-    out+='<circle cx="82" cy="84" r="21" fill="none" stroke="'+A+'" stroke-width="1.2"/>'+tx(82,90,String(m.urutanSidang),{size:16,w:700,fill:A})+
-      tx(82,120,"URUTAN SIDANG",{size:8,ls:1.2,fill:t.muted,w:700});
-  }
   out+=tx(W-82,90,String(m.angkatan||BASE.meta.angkatan),{size:12,ls:2.4,fill:t.muted,w:700});
   var y=250;
   L.b.forEach(function(b){
@@ -1098,7 +1115,7 @@ function renderRekap(){
   $("#tbody").innerHTML=ordered().map(function(m){
     var stl={sudah_sidang:"Sudah sidang",terjadwal:"Terjadwal",belum_dijadwalkan:"Belum dijadwalkan"}[m.status];
     return '<tr><td data-l="Absen">'+(m.absen==null?"–":m.absen)+'</td>'+
-      '<td data-l="Urutan sidang">'+(m.urutanSidang==null?"–":m.urutanSidang)+'</td>'+
+      ''+
       '<td class="nama" data-l="Nama">'+esc(m.nama)+'<small>'+esc(m.kota||"")+(S.mode==="kelas"&&m.nim?" · "+esc(m.nim):"")+'</small></td>'+
       '<td data-l="Status">'+stl+(m.tanggalSidang?"<br><small>"+esc(fmtShort(m.tanggalSidang))+"</small>":"")+'</td>'+
       '<td class="judul" data-l="Judul">'+esc(bolehJudul(m)?m.judul:(m.judul?"Belum izin tampil publik":"—"))+'</td>'+
@@ -1721,7 +1738,8 @@ function initScroll(){
   var tick=false;addEventListener("scroll",function(){if(tick)return;tick=true;requestAnimationFrame(function(){
     var h=document.documentElement.scrollHeight-innerHeight;$("#scrollbar").style.width=(h>0?clamp(scrollY/h,0,1)*100:0)+"%";tick=false;});},{passive:true});
 }
-function boot(){
+/*bedjo-wg*/function initWelcomeGate(){var wg=$("#welcomeGate");if(!wg)return;if(sessionStorage.getItem("bedjo.mode.chosen")==="1"){wg.classList.remove("on");return;}wg.classList.add("on");document.body.style.overflow="hidden";$("#btnPilihTamu").onclick=function(){S.mode="publik";sessionStorage.setItem("bedjo.mode.chosen","1");sessionStorage.removeItem("bedjo.kelas.auth");syncUI();saveUI();render();wg.classList.remove("on");document.body.style.overflow="";};$("#btnPilihKelas").onclick=function(){$("#wgStep1").style.display="none";$("#wgKelasForm").style.display="grid";$("#wgErr").textContent="";};$("#btnKembaliTamu").onclick=function(){$("#wgKelasForm").style.display="none";$("#wgStep1").style.display="grid";$("#wgErr").textContent="";};$("#wgKelasForm").onsubmit=function(e){e.preventDefault();var u=$("#wgUser").value.trim().toLowerCase(),p=$("#wgPass").value.trim();var hit=MEMBERS.find(function(m){if(!m.nim||String(m.nim).trim()!==p)return false;var f=String(m.nama||"").trim().toLowerCase(),pt=f.split(" ");return u===f||u===pt[0]||u===pt[pt.length-1];});if(hit){sessionStorage.setItem("bedjo.mode.chosen","1");sessionStorage.setItem("bedjo.kelas.auth","1");S.mode="kelas";syncUI();saveUI();render();wg.classList.remove("on");document.body.style.overflow="";toast("Masuk: <b>"+esc(hit.nama)+"</b>");}else{$("#wgErr").textContent="Nama atau NIM salah.";}};}
+function boot(){initWelcomeGate();
   build();buildPesan();buildSwatches();applyTheme();syncUI();render();route();saveUI();
   if(!cdTimer)cdTimer=setInterval(function(){if(!document.hidden)tickCountdown();},1000);
 }
